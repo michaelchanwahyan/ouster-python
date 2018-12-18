@@ -21,7 +21,7 @@ class OS1(object):
         self.api.set_config_param("udp_ip", self.dest_host)
         self.api.raise_for_error()
 
-        beam_intrinsics = json.loads(self.api.get_beam_intrinsics())
+        beam_intrinsics = json.loads((self.api.get_beam_intrinsics()).decode("utf-8")
         build_trig_table(
             beam_intrinsics["beam_altitude_angles"],
             beam_intrinsics["beam_azimuth_angles"],
